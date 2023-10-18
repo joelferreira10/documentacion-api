@@ -1,0 +1,20 @@
+[
+    {
+        "id": 2,
+        "title": "tv",
+        "description": "tv 80 pulgadas",
+        "code": "nn145s",
+        "price": 800,
+        "stock": 12,
+        "category": "electronica"
+    },
+    {
+        "id": 3,
+        "title": "tv",
+        "description": "tv 80 pulgadas",
+        "code": "nn145s",
+        "price": 800,
+        "stock": 12,
+        "category": "electronica"
+    }
+]
