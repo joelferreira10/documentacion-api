@@ -1,0 +1,31 @@
+paths:
+  /users/register:
+    post: 
+      tags: 
+        - Users
+      summary: registro de usuario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/users'
+        required: true
+      responses:
+        200:
+          description: se registro usuario correctamente
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/schema/users/register'
+        404:
+          description: error al registrar el usuario 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/users/validationError'
+        500:
+          description: error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/users/notFound'

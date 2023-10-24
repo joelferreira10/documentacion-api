@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 dotenv.config();
 
-console.log(process.env.PRIVATE_KEY);
+
 export const generateToken=(user)=>{
   const payload={
     userID:user._id,

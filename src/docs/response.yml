@@ -1,0 +1,144 @@
+components:
+  schema:
+    users:
+      register:
+        type: object
+        properties:
+          id:
+            type: string
+            description: id del user
+          first_name:
+            type: string
+            description: The name of the user.
+          last_name:
+            type: string
+            description: The last_name of the user.
+          email:
+            type: string
+            description: The email of the user.
+          age:
+            type: number
+            description: The age of the user.
+          password:
+            type: string
+            description: The password of the user.
+          role:
+            type: string
+            description: The role of the user.
+          cart:
+            type: object
+            description: The cart of the user.
+          isGithub:
+            type: boolean
+            description: user with gitHub.
+          isGoogle:
+            type: boolean
+            description: user with google.
+        example:
+          id: 6514a7ec630971e3905eec16
+          first_name: joel
+          last_name: ferreira
+          email: ferreira.joel.93@gmail.com
+          age: 30
+          password: 1234P
+          role: user
+          cart: {id: 6514a30d630971e3905eebeb, products: []}
+          isGithub: false
+          isGoogle: false
+      getAllUser:
+        type: array
+        items:
+          properties:
+            id:
+              type: string
+              description: id del user
+              example: 6514a7ec630971e3905eec16
+            first_name:
+              type: string
+              description: The name of the user.
+              example: joel
+            last_name:
+              type: string
+              description: The last_name of the user.
+              example: ferreira
+            email:
+              type: string
+              description: The email of the user.
+              example: ferreira.joel.93@gmail.com
+            age:
+              type: number
+              description: The age of the user.
+              example: 30
+            password:
+              type: string
+              description: The password of the user.
+              example: 1234p
+            role:
+              type: string
+              description: The role of the user.
+              example: user
+            cart:
+              type: object
+              description: The cart of the user.
+              example: {id: 6514a30d630971e3905eebeb, products: [id: 6514a30d630971e3905eebeb, quantity: 3]}
+            isGithub:
+              type: boolean
+              description: user with gitHub.
+              example: false
+            isGoogle:
+              type: boolean
+              description: user with google.
+              example: false
+      login:
+        type: object
+        properties:
+          token:
+            type: string
+            description: token generated in the login
+        example:
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NTE0YTdlYzYzMDk3MWUzOTA1ZWVjMTYiLCJmaXJzdF9uYW1lIjoiYXNkYXNhc2Rhc2RkIiwibGFzdF9uYW1lIjoic2FuYXNkYXNkYXNkYXNkY2hleiIsImVtYWlsIjoiZmVycmVpcmEuam9lbC45M0BnbWFpbC5jb20iLCJhZ2UiOjAsInJvbGUiOiJ1c2VyIiwiY2FydCI6eyJpZCI6IjY1MTRhMzBkNjMwOTcxZTM5MDVlZWJlYiIsInByb2R1Y3RzIjpbXX0sImlhdCI6MTY5ODA5NTYyOCwiZXhwIjoxNjk4MDk2ODI4fQ.w5YSTtHPKTxpPUET6PUHJDUmkbbDU_YUub6tEcRuUAc
+      current:
+        type: object
+        properties:
+          nombre:
+            type: string
+            description: name the user
+          email:
+            type: string
+            description: email the user
+          rol:
+            type: string
+            description: role the user
+          carrito:
+            type: Object
+            description: cart the user
+        example:
+          nombre: joel
+          email: ferreira.joel.93@gmail.com
+          rol: user
+          carrito: {id: 6514a30d630971e3905eebeb, products: [id: 6514a30d630971e3905eebeb, quantity: 0]}
+      validationError:
+        type: object
+        properties:
+          msg: 
+            type: string
+            description: Error de validacion de schema
+        example:
+          msg: Validation Schema error
+      notFound:
+        type: object
+        properties:
+          msg:
+            type: string
+            description: Error de servidor
+        example:
+          msg: Error de servidor
+      errorGetById:
+        type: object
+        properties:
+          msg:
+            type: string
+            description: Error de búsqueda por id
+        example:
+          msg: No se encontró el id ${id} en la base de datos.
+      
