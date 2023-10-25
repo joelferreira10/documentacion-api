@@ -12,6 +12,7 @@ import dotenv from 'dotenv'
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUI from 'swagger-ui-express'
 import { info } from './docs/info.js';
+import cors from 'cors'
 dotenv.config()
 
 const app = express();
@@ -22,9 +23,11 @@ const port=process.env.PORT || 8080
 
 app
     //middlewares
+    .use(cors())
     .use(json())
     .use(urlencoded({extended:true}))
     .use(morgan('dev'))
+    
     //session
       .use(cookieParser())
       .use(session(mongoOption))

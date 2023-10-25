@@ -8,7 +8,7 @@ export const info={
         },
         servers:[
             {
-                url:'http://localhost:8000/api'
+                url:'http://localhost:8080/api'
             }
         ],
     },

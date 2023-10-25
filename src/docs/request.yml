@@ -1,33 +1,109 @@
+# components:
+#   parameters:
+#     schemas:
+#       users:
+#         type: object
+#         required: 
+#           - first_name
+#           - last_name
+#           - email
+#           - age
+#           - password
+#         propietaries:
+#           first_name:
+#             type: string
+#             description: The name of the user.
+#           last_name:
+#             type: string
+#             description: The last_name of the user.
+#           email:
+#             type: string
+#             description: The email of the user.
+#           age:
+#             type: number
+#             description: The age of the user.
+#           password:
+#             type: string
+#             description: The password of the user.
+#         example:
+#           first_name: joel
+#           last_name: ferreira
+#           email: ferreira.joel.93@gmail.com
+#           age: 30
+#           password: 1234m
+#       login:
+#         type: object
+#         required:
+#           - email
+#           - password
+#         properties:
+#           email:
+#             type: string
+#             format: email
+#             description: The email of the user.
+#           password:
+#             type: string
+#             description: The password of the user.
+#           example:
+#             email: ferreira.joel.93@gmail.com
+#             password: 12345678
+#   securitySchemes:
+#     bearerAuth:
+#     type: http
+#     scheme: bearer
+#     bearerFormat: JWT
+
+
+
 components:
-  parameters:
-    schemas:
-      users:
-        type: object
-        required: 
-          - first_name
-          - last_name
-          - email
-          - age
-          - password
-        propietaries:
-          first_name:
-            type: string
-            description: The name of the user.
-          last_name:
-            type: string
-            description: The last_name of the user.
-          email:
-            type: string
-            description: The email of the user.
-          age:
-            type: number
-            description: The age of the user.
-          password:
-            type: string
-            description: The password of the user.
-        example:
-          first_name: joel
-          last_name: ferreira
-          email: ferreira.joel.93@gmail.com
-          age: 30
-          password: 1234m
+  schemas:  # Usar schemas directamente
+    users:
+      type: object
+      required: 
+        - first_name
+        - last_name
+        - email
+        - age
+        - password
+      properties:  # Corregir a 'properties'
+        first_name:
+          type: string
+          description: The name of the user.
+          example: joel
+        last_name:
+          type: string
+          description: The last_name of the user.
+          example: ferreira
+        email:
+          type: string
+          description: The email of the user.
+          example: ferreira.joel.93@gmail.com
+        age:
+          type: number
+          description: The age of the user.
+          example: 30
+        password:
+          type: string
+          description: The password of the user.
+          example: 1234m
+    login:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          description: The email of the user.
+          example: ferreira.joel.93@gmail.com
+        password:
+          type: string
+          description: The password of the user.
+          example: 12345678
+  
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

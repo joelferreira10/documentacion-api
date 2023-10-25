@@ -1,14 +1,104 @@
+# paths:
+#   /users/register:
+#     post: 
+#       tags: 
+#         - Users
+#       summary: registro de usuario nuevo
+#       requestBody:
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/users'
+#         required: true
+#       responses:
+#         200:
+#           description: se registro usuario correctamente
+#           content:
+#             application/json:
+#               schema:
+#                $ref: '#/components/schemas/users/register'
+#         404:
+#           description: error al registrar el usuario 
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/users/validationError'
+#         500:
+#           description: error del servidor
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/users/notFound'
+#   /users/login:
+#     post: 
+#       tags: 
+#         - Users
+#       summary: Login de usuario
+#       requestBody:
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/login'
+#         required: true
+#       responses:
+#         200:
+#           description: Login de usuario
+#           content:
+#             application/json:
+#               schema:
+#                $ref: '#/components/schemas/users/login'
+#         404:
+#           description: error al loguear el usuario 
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/users/validationError'
+#         500:
+#           description: error del servidor
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/users/notFound'
+#   /users:
+#     get:
+#       tags:
+#       - Users
+#       summary: Lista de usuarios
+#       responses:
+#         200:
+#           description: Lista de usuarios
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schema/users/getAllUser'
+#   /users/current:
+#     get:
+#       tags:
+#       - Users
+#       summary: Informacion del usuario actual
+#       responses:
+#         200:
+#           description: Información del usuario actual
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/users/current'
+#       security:
+#         - bearerAuth: []
+
+
+
 paths:
   /users/register:
     post: 
       tags: 
         - Users
-      summary: registro de usuario
+      summary: registro de usuario nuevo
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/parameters/schemas/users'
+              $ref: '#/components/schemas/users'
         required: true
       responses:
         200:
@@ -16,16 +106,99 @@ paths:
           content:
             application/json:
               schema:
-               $ref: '#/components/schema/users/register'
+               $ref: '#/components/schemas/users/register'
         404:
           description: error al registrar el usuario 
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/users/validationError'
+                $ref: '#/components/schemas/users/validationError'
         500:
           description: error del servidor
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/users/notFound'
+                $ref: '#/components/schemas/users/notFound'
+  
+  /users/login:
+    post: 
+      tags: 
+        - Users
+      summary: Login de usuario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/login'
+        required: true
+      responses:
+        200:
+          description: Login de usuario
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/users/login'
+        404:
+          description: error al loguear el usuario 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users/validationError'
+        500:
+          description: error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users/notFound'
+  
+  /users:
+    get:
+      tags:
+      - Users
+      summary: Lista de usuarios
+      responses:
+        200:
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users/getAllUser'
+        404:
+          description: Error al listar usuarios
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users/validationError'
+        500:
+          description: error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users/notFound'
+
+  /users/current:
+    get:
+      tags:
+      - Users
+      summary: Informacion del usuario actual
+      responses:
+        200:
+          description: Información del usuario actual
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users/current'
+        404:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users/validationError'
+        500:
+          description: error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users/notFound'
+      security:
+        - bearerAuth: []
